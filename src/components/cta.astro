@@ -1,17 +1,23 @@
 ---
 import Link from "./ui/link.astro";
+import appStoreButton from "assets/app_store.png";
+import googlePlayButton from "assets/google_play.png";
+import { Picture } from "astro:assets";
 ---
 
-<div
-  class="bg-black p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
-  <h2 class="text-white text-4xl md:text-6xl tracking-tight">
-    Build faster websites.
-  </h2>
-  <p class="text-slate-400 mt-4 text-lg md:text-xl">
-    Pull content from anywhere and serve it fast with Astro's next-gen island
-    architecture.
-  </p>
-  <div class="flex mt-5">
-    <Link href="#" style="inverted">Get Started</Link>
-  </div>
+<div class="mt-6 flex justify-center sm:flex-row gap-1 my-4">
+  <Link
+    href="#"
+    target="_blank"
+    class="flex gap-1 items-center justify-center"
+    rel="noopener">
+    <Picture src={appStoreButton} alt="Download" />
+  </Link>
+  <Link
+    rel="noopener"
+    href="#"
+    class="flex gap-1 items-center justify-center"
+    target="_blank">
+    <Picture src={googlePlayButton} alt="Download" />
+  </Link>
 </div>

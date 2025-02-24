@@ -3,9 +3,10 @@ import Container from "@components/container.astro";
 import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
-
+import { Picture } from "astro:assets";
+import logo from "assets/mj_logo.png";
 const menuitems = [
-  {
+  /* {
     title: "Features",
     path: "#",
     children: [
@@ -14,7 +15,7 @@ const menuitems = [
       { title: "Dropdown Submenu", path: "#" },
       { title: "404 Page", path: "/404" },
     ],
-  },
+  }, */
   {
     title: "Pricing",
     path: "/pricing",
@@ -22,10 +23,6 @@ const menuitems = [
   {
     title: "About",
     path: "/about",
-  },
-  {
-    title: "Blog",
-    path: "/blog",
   },
   {
     title: "Contact",
@@ -42,13 +39,15 @@ const menuitems = [
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">Astro</span><span
-            class="text-slate-500">ship</span
-          >
+        <a href="/" class="text-lg">
+          <Picture
+            src={logo}
+            alt="Microjournal Logo"
+            height={50}
+          />
         </a>
         <div class="block lg:hidden">
-          <MenuIcon class="w-4 h-4 text-gray-800" />
+          <MenuIcon class="w-4 h-4 text-white" />
         </div>
       </div>
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">

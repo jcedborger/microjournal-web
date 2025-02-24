@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "InstrumentSerif";
+  src: url("/assets/fonts/InstrumentSerif-Italic.ttf") format("ttf");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "InstrumentSerif";
+  src: url("/assets/fonts/InstrumentSerif-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.instrument-serif {
+  font-family: "InstrumentSerif", serif;
+}
+
+.instrument-serif-italic {
+  font-family: "InstrumentSerif", serif;
+  font-style: italic;
+}
+
+.span-container {
+  margin: 0 -20px !important;
+}
+
+.bg-sand {
+  background-color: #f5f5f5;
+}
+
+@layer base {
+  :root {
+    --color-element-bg: #191a1a;
+  }
+}
+
+.bg-element-bg {
+  background-color: var(--color-element-bg);
+}
+
+.custom-gradient {
+  background: linear-gradient(90deg, #c7c7c7 0%, #9e9494 100%);
+}

@@ -1,0 +1,42 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+import { useStore } from "@nanostores/react";
+import { token } from "@services/firebase";
+
+const $token = useStore(token);
+import { query } from "@services/api";
+  import { currentUser } from "@queries/currentUser";
+  const { data } = await query(currentUser, $token);
+  console.log("data", data);
+
+---
+
+<Layout title="Contact">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title"><h1 class="text-6xl instrument-serif-italic">Contact</h1></Fragment>
+      <Fragment slot="desc">We are a here to help.</Fragment>
+    </Sectionhead>
+
+    <div class="grid  mx-auto max-w-4xl mt-16">
+      <div>
+        <h2 class="font-medium text-2xl text-gray-800">Contact Microjournal</h2>
+        <p class="text-lg leading-relaxed text-slate-500 mt-3">
+          Have something to say? We are here to help. Please send us an email with your wuestion or feedback
+        </p>
+        <div class="mt-5">
+          <div class="flex items-center mt-2 space-x-2 text-gray-600">
+            <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
+              href="mailto:hello@microjournal.app"
+              >hello@microjournal.app</a
+            >
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </Container>
+</Layout>

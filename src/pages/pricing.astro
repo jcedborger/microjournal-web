@@ -3,6 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import PricingCard from "@components/pricing.astro";
+import SubscriptionOffers from "@components/subscriptions.astro";
+
 
 const pricing = [
   {
@@ -40,9 +42,10 @@ const pricing = [
         Simple & Predictable pricing. No Surprises.
       </Fragment>
     </Sectionhead>
-
+    <h1>Subscribe to a Plan</h1>
+    <SubscriptionOffers /><!-- 
     <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-screen-lg mt-12">
       {pricing.map((item) => <PricingCard plan={item} />)}
-    </div>
+    </div> -->
   </Container>
 </Layout>

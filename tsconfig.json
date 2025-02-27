@@ -10,7 +10,9 @@
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
       "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@services/*": ["services/*"],
+      "@queries/*": ["queries/*"]
     }
   }
 }

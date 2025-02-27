@@ -1,0 +1,43 @@
+---
+import { fetchOfferings, initializeRevenueCat } from "@services/revenuecat";
+
+initializeRevenueCat();
+
+let offerings;
+
+try {
+  offerings = await fetchOfferings();
+  
+} catch (error) {
+  console.error("Failed to fetch offerings", error);
+}
+---
+
+<section>
+  <h2>Choose a Subscription Plan</h2>
+  {offerings.length > 0 ? (
+    <ul>
+      {offerings.map((offer) => (
+        <li key={offer.identifier}>
+          <h3>{offer.webBillingProduct.title}</h3>
+          <p>{offer.webBillingProduct.priceString}</p>
+          <button class="subscribe-button" data-offer-id={offer.identifier}>Subscribe</button>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>Loading subscriptions...</p>
+  )}
+</section>
+
+<script>
+  import { purchase } from "@services/revenuecat";
+  const purchaseButtons = document.querySelectorAll(".subscribe-button");
+  purchaseButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedOffer = button.dataset.offerId;
+      console.log(selectedOffer);
+      purchase(selectedOffer);
+    });
+  });
+</script>

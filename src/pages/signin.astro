@@ -1,0 +1,42 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+---
+<Layout title="Sign in">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title"><h1 class="text-6xl instrument-serif-italic">Sign in</h1></Fragment> 
+      <Fragment slot="desc">Sign in to your account to get started.</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Sign in to your account to get started.
+      </h2>
+      <div class="flex flex-col gap-3"> 
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button type="submit" id="signinButton">Sign in</button>
+      </div>
+    </div>
+   
+  </Container>
+</Layout>
+
+<script>
+import { signIn } from "@services/firebase";
+
+  document.getElementById('signinButton')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    const email = document.querySelector('input[type="email"]')?.value;
+    const password = document.querySelector('input[type="password"]')?.value;
+    if (email && password) {
+      signIn({ email, password }).then((user) => {
+        if (user) {
+          Astro.redirect("/profile");
+        }
+      });
+    }
+  });
+</script>
